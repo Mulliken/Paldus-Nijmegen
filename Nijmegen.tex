@@ -1,0 +1,171 @@
+% !TEX TS-program = pdflatex
+\documentclass{book}
+%\usepackage{luatexja-fontspec}
+%\setmainjfont{FandolSong}
+\usepackage{mathptmx}
+\usepackage{color}
+\usepackage{amsmath,amssymb,braket,bm,graphicx}
+\renewcommand{\braket}[1]{\Braket{#1}}
+\renewcommand{\ket}[1]{\Ket{#1}}
+\renewcommand{\bra}[1]{\Bra{#1}}
+\newcommand{\de}[1]{\mathrm{d}{#1}\,}
+\newcommand{\WHAT}{{\color{red}WHAT} }
+\begin{document}
+\title{Diagrammatical Methods for Many-Fermion Systems }\author{J. Paldus}
+\maketitle
+
+\chapter{Second Quantization Formalism}
+The second quantization formalism enables an alternative representation of quantum mechanical states and observables, which is quite distinct from the well known Schr\"odinger wave function or Heisenberg matrix formalisms. The name of this formalism, which seems to imply some physical procedure analogous to transition from the classical to quantum mechanics (sometimes referred to as the ``first quantization'') is sometimes confusing to the uninitiated. We thus haste to say that the term ``second quantization'' originated in early attempts of a quantum mechanical description of electromagnetic fields and is nowadays used for historical reasons to designate a quantum mechanical representation of states and observables, which is much more appropriately referred to as the ``occupation number representation''.
+
+The primary advantages of this representation lie in the fact that it automatically yields the states of correct symmetry for the systems of identical particles and thus enables one to bypass various combinatorial considerations which are unavoidable in conventional formalism. Moreover, it enables a simple graphical representation of its basic quantities and a formulation of simple rules simplifying many quantum mechanical calculations.
+
+In this chapter we shall introduce the concepts of the occupation number representation and of the basic operators used in the second quantization formalism, namely the creation and annihilation operators/ We shall start from the well known configuration wavefunction representation of $N-$particles states and will introduce the necessary operators purely heuristically without paying much attention to the mathematical rigor. Only after this initial outline, which should \WHAT our own objectives, we shall introduce the concept of the Fock space and will make our definitions more satisfactory from the mathematical viewpoint. We shall derive the basic properties of creation and annihilation operators in a simplest wat possible and will also briefly introduce their field counterpart for the sake of completeness.
+
+\section{$N$-particles spaces, basic concepts and notation}
+In this text we are solely dealing with the systems of identical fermions and we shall assume that the reader is familiar with basic concepts of quantum mechanical description of these systems in the usual wavefunction or abstract Dirac formalism.
+
+Consider, thus, a general complete system of discrete orthonormal one-particle states $\ket{A}$, where $\braket{A|B}=\delta_{AB}$ and where $\delta_{AB}$ is the Kronecker symbol ($\delta_{AA}=1,\delta_{AB}=0$ for $A\neq B$). In the coordinate representation the abstract one-particle states $\ket{A}$ have the form 
+\begin{align}
+    \phi_A(\vec{x})\equiv \braket{\vec{x}|A}
+    \label{eq:1}
+\end{align} 
+where $\vec{x}\equiv(\vec{r},s)$ designates the spatial $(\vec{r})$ and the internal $(s)$ coordinates/ When the considered particle is and electron, $\vec{r}$ designates its three-dimensional position vector and $s$ its spin variable. The one-electron wavefunction $\phi_A(\vec{x})$ or the corresponding abstract ket $\ket{A}$ are referred to as a \emph{spin-orbital}. We shall always label the spin-orbital by the capital letters of the Latin alphabet reserving the lower case letters for corresponding spatial components, referred to as \emph{orbitals}.
+
+The wavefunction and the abstract ket representation are simply related as Eq. \eqref{eq:1} indicates. The orthonormality condition for the spin-orbitals \eqref{eq:1} is easily obtained using the resolution of identity for the one-particle coordinate space $E_2\otimes S, \vec{r}\in E_3, s\in S, \vec{x}=(\vec{r},s )$
+\begin{align}
+    \hat{1}=\int\de{\vec x}\ket{x}\bra{x}
+    \label{eq:2}
+\end{align}
+where $\hat{i}$ designates the identity operator in $E_3\otimes$ and the integral symbol implies the integration over the three dimensional Euclidean space and the summation over the discrete (usually spin) variable $s$. 
+
+Thus 
+\begin{align}
+    \braket{A|B}=\int\de{\vec{x}}\braket{A|\vec{x}}\braket{\vec{x}|B}=\int\de{x}\phi^*(\vec{x})\phi_B(\vec{x})=\delta_{AB}
+\end{align}
+where $M^*=\braket{A|\vec{x}}$ designates the complex conjugate of $M=\braket{\vec{x}|A}$.
+
+Any single particle state $\psi(\vec{x})\equiv \braket{\vec{x}|\psi}$ can be expanded as
+
+\begin{subequations}
+    \begin{align}
+        \psi(\vec{x}) = \sum_Ac_A\phi_A(\vec{x})\\
+        \intertext{or}
+        \ket{\psi}=\sum_A c_A\ket{A}
+    \end{align}
+\end{subequations}
+where the summation generally extends over all states of a given complete orthonormal system of discrete states. The generalized Fourier coefficients $c_A$ are given as
+\begin{align}
+c_A=\braket{A|\psi}=\int{\de{\vec{x}}}\phi_A^*(\vec{x})\psi(\vec{x})
+\end{align}
+where we have used again the resolution of identity \eqref{eq:2}.  
+
+A complete orthonormal system $\{\ket{A}\}$ or $\{\phi_A(\vec{x})\}$ may thus be regarded as a basis for a one-particle space $V_1$ assuming some arbitrary but fixed ordering of these states\footnote{
+    Clearly, the states $\ket{A}$ and $\phi_A(\vec{x})$ belong to very different vector spaces. However, these spaces are simply related by a mutual isomorphism (see \eqref{eq:1}) and we thus use the same symbol $V_1$ for both. Same convention is used for corresponding $N$-particle spaces.
+    }.
+
+Consider, next, a system of $N$ identical fermions, say, a system of $N$ electrons. Its state space $\mathcal{F}_N$ can be described as a antisymmetric component of the $N$-th tensor power of one-particle Hilbert space $\mathcal{V}_1$,
+\begin{align}
+    \mathcal{F}_N=\mathcal{A}\mathcal{V}_N
+\end{align}
+where
+\begin{align}
+    \mathcal{V}_N=\mathcal{V}_1\otimes\mathcal{V}_1\otimes\cdots\mathcal{V}_1\otimes=\mathcal{V}_1^{\otimes N}
+\end{align}
+and $\mathcal{A}$ designates the projector onto the totally antisymmetric subspace of $\mathcal{V}_N$. Choosing a canonical tensor product basis for $\mathcal{V}_N$ consisting of monomials
+\begin{subequations}
+    \begin{align}
+        \phi_{A_1}(\vec{x}_1)\otimes\phi_{A_2}(\vec{x}_2)\otimes\cdots\phi_{A_N}(\vec{x}_N)\\
+        \intertext{or}
+        \ket{A_1}\otimes\ket{A_2}\otimes\cdots\otimes\ket{A_N}
+    \end{align}
+\end{subequations}
+which we write for simplicity as 
+\begin{subequations}
+    \begin{align}
+        \phi_{A_1}(\vec{x}_1)\phi_{A_2}(\vec{x}_2)\cdots\phi_{A_N}(\vec{x}_N)\\
+        \intertext{or}
+        \ket{A_1}\ket{A_2}\cdots\ket{A_N}
+        \label{eq:9b}
+    \end{align}
+\end{subequations}
+we can write a general normalized basis vector for $\mathcal{F}_N$ as 
+\begin{align}
+    \Phi_K(1,2,\ldots,N) \equiv \sqrt{N!} \mathcal{A}\phi_{A_1}(\vec{x}_1)\phi_{A_2}(\vec{x}_2)\cdots\phi_{A_N}(\vec{x}_N)
+    \label{eq:10}
+\end{align}
+Here $K$ designates the index set 
+\begin{align}
+    K\equiv\{A_1,A_2,\ldots,A_N\}
+\end{align}
+and the antisymmetrizer has the  form
+\begin{align}
+    \mathcal{A}=(N!)^{-1}\sum_{P\in S_N}(-1)^{p}P
+\end{align}
+where the sum extends over $N!$ permutations $P$ of the symmetric group $S_N$. The permutations $P$, 
+\begin{align}
+    P \equiv
+    \begin{pmatrix}
+        1 & 2 & \ldots & N\\
+        P_1&P_2&\ldots&P_N
+    \end{pmatrix}
+\end{align}
+whose parity is designated as $(-1)^p$, act either on the spin-orbital labels $A_i$ or on the coordinates $\vec{x}_i (i=1,\ldots,N)$ but not on both simultaneously.
+
+In the abstract bra-ket notation we shall write the state \eqref{eq:10} as 
+\begin{align}
+    \ket{\Phi_K} & \equiv \ket{\Phi_K(1,2,\ldots,N)} \equiv \ket{\{A_1A_2\cdots A_N\}}\notag\\
+                 & = \sqrt{n!}\mathcal{A}\ket{A_1A_2\cdots A_N}
+    \label{eq:14}
+\end{align}
+
+We shall refer to the state \eqref{eq:10} or \eqref{eq:14} as \emph{configuration}. The single particle states appearing in $K$ are said to be \emph{occupied} in this configuration while those not present in $K$ as \emph{unoccupied} spin-orbitals relative to $\ket{\Phi_K}$. In order that $\ket{\Phi_K}$ or ${\Phi_K}$ form a basis for $\mathcal{F}_N$, only linear independent \emph{ordered configuration $K$}, for which 
+\begin{align}
+    A_1<A_2<\cdots<A_N
+\end{align}
+holds, are considered and properly ordered. The abstract and $x$-representation configuration are again simply related 
+\begin{align}
+    \Phi_K & \equiv \Phi_K(1,2,\ldots,N) \equiv \Phi_K(\vec{x}_1,\vec{x}_1,\ldots,\vec{x}_N)\notag\\
+    &=(N!)^{-1/2}\det||\phi_{A_1}(\vec{x}_1)\phi_{A_2}(\vec{x}_2)\cdots\phi_{A_N}(\vec{x}_N)|| \notag\\
+    &=(N!)^{-1/2}\sum_{P\in \mathcal{S}_N}(-1)^p \phi_{A_1}(\vec{x}_{P_1})\phi_{A_2}(\vec{x}_{P_2})\cdots\phi_{A_N}(\vec{x}_{P_N})\notag\\
+    &=(N!)^{-1/2}\sum_{P\in \mathcal{S}_N}(-1)^p \phi_{A_{P_1}}(\vec{x}_1)\phi_{A_{P_2}}(\vec{x}_{2})\cdots\phi_{A_{P_N}}(\vec{x}_{N})\notag\\
+    &=\braket{\vec{x}_1\vec{x}_2\cdots\vec{x}N|\Phi_K(\vec{x}_1,\vec{x}_1,\ldots,\vec{x}_N)}\notag\\
+    &=\braket{12\cdots N|\Phi_K}\notag\\
+    &=\braket{12\cdots N|A_1A_2\cdots A_N}
+    \label{eq:16}
+\end{align}
+
+Our notation stresses that the configurations are antisymmetric in the occupied single particle states by enclosing them in curly brackets. In this way no confusion between configuration or basis states of $\mathcal{F}_N$ and simple products of one-particle states, \eqref{eq:9b}, can arise. Thus, for example, we have 
+\begin{align}
+    \ket{\{AB\}}&=\ket{\{A(1)B(1)\}} = 2^{-1/2}
+    \begin{vmatrix}
+        \ket{A(1)} & \ket{A(2)}\\
+        \ket{B(1)} & \ket{B(2)}
+    \end{vmatrix}\\
+                &=2^{-1/2}(\ket{A(1)}\ket{B(2)}-\ket{B(1)}\ket{A(2)})\\
+                &=2^{-1/2}(\ket{A(1)B(2)}-\ket{B(1)A(2)})\\
+                &=2^{-1/2}(\ket{AB}-\ket{BA})
+\end{align}
+
+Clearly
+\begin{align}
+    \ket{\{b\}}
+\end{align}
+
+We also recall that expanding the states determinant in \eqref{eq:16} about, say the first column, we obtain 
+\begin{align}
+    &\braket{\vec{x}_1\vec{x}_2\cdots\vec{x}_N|\{A_1A_2\cdots A_N\}}\notag\\
+    =&N^{-1/2}\sum_{j=1}^N\braket{\vec{x}_1|A_j}(-1)^{j-1}\braket{\vec{x}_2\cdots\vec{x}_N|\{A_1\cdots A_{j-1}A_{j+1}\cdots A_N\}}
+\end{align} 
+Similarly, expanding about the $i$-th row we got
+\begin{align}
+    &\braket{\vec{x}_1\vec{x}_2\cdots\vec{x}_N|\{A_1A_2\cdots A_N\}}\notag\\
+    =&N^{-1/2}\sum_{l=1}^N (-1)^{l+i}\braket{l|A_i} \braket{12\cdots(l-1)(l+1)|\{A_1\cdots A_{i-1}A_{i+1}\cdots A_N\}}
+\end{align}
+
+
+
+
+
+\bibliography{bib}
+\bibliographystyle{plain}
+\end{document}
