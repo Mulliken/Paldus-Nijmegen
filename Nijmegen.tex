@@ -121,6 +121,7 @@ In the abstract bra-ket notation we shall write the state \eqref{eq:10} as
 We shall refer to the state \eqref{eq:10} or \eqref{eq:14} as \emph{configuration}. The single particle states appearing in $K$ are said to be \emph{occupied} in this configuration while those not present in $K$ as \emph{unoccupied} spin-orbitals relative to $\ket{\Phi_K}$. In order that $\ket{\Phi_K}$ or ${\Phi_K}$ form a basis for $\mathcal{F}_N$, only linear independent \emph{ordered configuration $K$}, for which 
 \begin{align}
     A_1<A_2<\cdots<A_N
+    \label{eq:15}
 \end{align}
 holds, are considered and properly ordered. The abstract and $x$-representation configuration are again simply related 
 \begin{align}
@@ -140,9 +141,9 @@ Our notation stresses that the configurations are antisymmetric in the occupied 
     \begin{vmatrix}
         \ket{A(1)} & \ket{A(2)}\\
         \ket{B(1)} & \ket{B(2)}
-    \end{vmatrix}\\
-                &=2^{-1/2}(\ket{A(1)}\ket{B(2)}-\ket{B(1)}\ket{A(2)})\\
-                &=2^{-1/2}(\ket{A(1)B(2)}-\ket{B(1)A(2)})\\
+    \end{vmatrix} \notag \\
+                &=2^{-1/2}(\ket{A(1)}\ket{B(2)}-\ket{B(1)}\ket{A(2)}) \notag \\
+                &=2^{-1/2}(\ket{A(1)B(2)}-\ket{B(1)A(2)}) \notag \\
                 &=2^{-1/2}(\ket{AB}-\ket{BA})
 \end{align}
 
@@ -161,6 +162,47 @@ Similarly, expanding about the $i$-th row we got
     &\braket{\vec{x}_1\vec{x}_2\cdots\vec{x}_N|\{A_1A_2\cdots A_N\}}\notag\\
     =&N^{-1/2}\sum_{l=1}^N (-1)^{l+i}\braket{l|A_i} \braket{12\cdots(l-1)(l+1)|\{A_1\cdots A_{i-1}A_{i+1}\cdots A_N\}}
 \end{align}
+
+Now, the ordered configuration $\ket{\Phi_K}$ form a basis of the $N$-particle space $\mathcal{F}_N$ so that any $N$-electron state $\ket{\Psi}\equiv \ket{\Psi(1,2,\ldots,N)}$ can be expanded as follows 
+\begin{align}
+    \ket{\Psi} = \sum_K c_K\ket{\Phi_K}
+\end{align}
+where 
+\begin{align}
+    c_K = \braket{\Phi_K|\Psi}
+\end{align}
+Formally the above expansion immediately results by applying the resolution of identity, for the $N$-particle space $\mathcal{F}_N$, to $\ket{\Psi}$ 
+\begin{align}
+    \hat{1} & = \sum_K \ket{\Phi_K}\bra{\Phi_K} \notag\\
+            & = \sum_{A_1<A_2<\cdots<A_N}\ket{\{A_1A_2\cdots A_N\}}\bra{\{A_1A_2\cdots A_N\}} \notag\\
+            & = (N!)^{-1} \sum_{A_1,A_2,\cdots,A_N}\ket{\{A_1A_2\cdots A_N\}}\bra{\{A_1A_2\cdots A_N\}}
+\end{align}
+where the last equation follows immediately from the antisymmetry of configuration $\ket{\Phi_K}$, Eq. \eqref{eq:14} or \eqref{eq:16},
+\begin{align}
+    \mathcal{P}\ket{\{A_1A_2\cdots A_N\}} = (-1)^P\ket{\{A_1A_2\cdots A_N\}}
+\end{align}
+
+Let us, finally, also mention that a very similar formalism also applies to the systems of identical particles. In this case the anti-symmetric product states (configurations) $\ket{\Phi_K}$ of the fermions theory must be replaced by the corresponding totally symmetrized product $\ket{\Phi_K}^S$ of spin-orbitals $\ket{A_i}$ 
+\begin{align}
+    \ket{\Phi_K}^S = \mathcal{S} \ket{A_1A_2\cdots A_N}
+\end{align}
+where
+\begin{align}
+    \mathcal{S} = (N!)^{-1} \sum_{\mathcal{P}\in \mathcal{S}_N}\mathcal{P}
+\end{align}
+However, in contrast with the fermionic states, each spin-orbital $\ket{A_i}$ may now be contained in $K$ or $\ket{\Phi_K}^s$ any number of times, so that an ordered configuration states, which we can designates as 
+\begin{align}
+    \ket{\Phi_K}^S \equiv \ket{[A_1A_2\cdots A_N]}
+\end{align}
+we have that
+\begin{align}
+    A_1\leqslant A_2\leqslant \cdots\leqslant  A_N
+    \label{eq:28}
+\end{align}
+Clearly, the family of all index sets $K$, Eq. \eqref{eq:28}, is much larger than the fermionic one where the condition \eqref{eq:15} holds and which is thus a proper subfamily of the bosonic family of index sets $K$.
+
+
+
 
 
 
