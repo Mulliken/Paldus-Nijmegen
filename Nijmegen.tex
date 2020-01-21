@@ -96,6 +96,7 @@ we can write a general normalized basis vector for $\mathcal{F}_N$ as
 Here $K$ designates the index set 
 \begin{align}
     K\equiv\{A_1,A_2,\ldots,A_N\}
+    \label{eq:11}
 \end{align}
 and the antisymmetrizer has the  form
 \begin{align}
@@ -156,11 +157,13 @@ We also recall that expanding the states determinant in \eqref{eq:16} about, say
 \begin{align}
     &\braket{\vec{x}_1\vec{x}_2\cdots\vec{x}_N|\{A_1A_2\cdots A_N\}}\notag\\
     =&N^{-1/2}\sum_{j=1}^N\braket{\vec{x}_1|A_j}(-1)^{j-1}\braket{\vec{x}_2\cdots\vec{x}_N|\{A_1\cdots A_{j-1}A_{j+1}\cdots A_N\}}
+    \label{eq:19}
 \end{align} 
 Similarly, expanding about the $i$-th row we got
 \begin{align}
     &\braket{\vec{x}_1\vec{x}_2\cdots\vec{x}_N|\{A_1A_2\cdots A_N\}}\notag\\
-    =&N^{-1/2}\sum_{l=1}^N (-1)^{l+i}\braket{l|A_i} \braket{12\cdots(l-1)(l+1)|\{A_1\cdots A_{i-1}A_{i+1}\cdots A_N\}}
+    =&N^{-1/2}\sum_{\ell=1}^N (-1)^{\ell+i}\braket{\ell|A_i} \braket{12\cdots(l-1)(l+1)|\{A_1\cdots A_{i-1}A_{i+1}\cdots A_N\}}
+    \label{eq:20}
 \end{align}
 
 Now, the ordered configuration $\ket{\Phi_K}$ form a basis of the $N$-particle space $\mathcal{F}_N$ so that any $N$-electron state $\ket{\Psi}\equiv \ket{\Psi(1,2,\ldots,N)}$ can be expanded as follows 
@@ -185,6 +188,7 @@ where the last equation follows immediately from the antisymmetry of configurati
 Let us, finally, also mention that a very similar formalism also applies to the systems of identical particles. In this case the anti-symmetric product states (configurations) $\ket{\Phi_K}$ of the fermions theory must be replaced by the corresponding totally symmetrized product $\ket{\Phi_K}^S$ of spin-orbitals $\ket{A_i}$ 
 \begin{align}
     \ket{\Phi_K}^S = \mathcal{S} \ket{A_1A_2\cdots A_N}
+    \label{eq:25}
 \end{align}
 where
 \begin{align}
@@ -201,11 +205,50 @@ we have that
 \end{align}
 Clearly, the family of all index sets $K$, Eq. \eqref{eq:28}, is much larger than the fermionic one where the condition \eqref{eq:15} holds and which is thus a proper subfamily of the bosonic family of index sets $K$.
 
+\section{Occupation number representation}
+In order to specify uniquely any given ordered configuration $\ket{\Phi_K}$, we have only to know which spinorbitals are occupied and which are unoccupied in $\ket{\Phi_K}$. Thus, the index set $K$, Eq. \eqref{eq:11}, uniquely defines $\ket{\Phi_K}$.
 
+In the occupation number representation one generally defined the \emph{occupation number} $n_A$ of the spinorbital $\ket{A}$ in the configuration $\ket{\Phi_K}$ as the number of how many times the spin-orbital $\ket{A}$ is occupied in $\ket{\Phi_K}$. For fermionic systems the occupation numbers $n_A$ for any configuration can only take on two values, namely 0 and 1. Clearly, $n_A=1$ if $\ket{A}$ is occupied in $\ket{\Phi_A}$, i.e. $A\in K$, and $n_A=0$ if $\ket{A}$ is unoccupied in $\ket{A}$, $A\notin K$. Using this terminology we can thus state that any configuration is fully determined by the occupation numbers of \emph{all} spinorbitals pertaining to this configuration.
 
+We note that bosonic configuration $\ket{\Phi_K}^S$, Eq. \eqref{eq:25}, are also uniquely defined by the occupations of the spin-orbitals $\ket{A}$. In fact, the ordering of spin-orbitals is not essential in this case and the occupation numbers are only restricted by the total number of particles, 
+\begin{align}
+    0\leqslant n_A\leqslant N
+\end{align}
 
-
-
+Since the configuration $\ket{\Phi_K}$ (or, $\ket{\Phi_K}^S$) may be fully determined by the spinorbital occupation numbers $n_A$, we can also designate theses configuration by simply listing the occupation numbers of individual spinorbitals, arranged in some definite order, as follows 
+\begin{align}
+    \ket{n_1n_2\cdots n_A\cdots}
+\end{align}
+This notation is often used in the second quantization formalism and is especially useful for systems of bosons. However, in the case of Fermion systems, where the spinorbitals can be at most singly occupied, it it often simpler to use a formerly introduced notation which simply lists the occupied spin-orbitals. In other words, we write 
+\begin{align}
+    \ket{\Phi_K} = \ket{\{A_1A_2\ldots A_N\}} = \ket{n_1n_2\ldots n_A\ldots}
+\end{align}
+where
+\begin{align}
+        n_A=1 \quad \text{if} &\quad A=A_1,A_2,\ldots,A_N\notag\\
+        \intertext{and}
+        n_A=0 \quad \text{if} & \quad A\neq A_1,A_2,\ldots,A_N
+\end{align}
+Thus, for example 
+\begin{align}
+    \ket{\{1\,2\,7\,10\,12 \}}=\ket{1\,1\,0\,0\,0\,0\,1\,0\,0\,1\,0\,1\,0\,0\,\ldots 0 \ldots}
+\end{align}
+or, in the bosonic case 
+\begin{align}
+    \ket{[1\,1\,1\,3\,3\,5]} = \ket{3\,0\,2\,0\,1\,0\,0\ldots 0\ldots}^S
+\end{align}
+The former notation is clearly often much simpler for the fermionic systems than the standard occupation numbers notation. Sometimes, however, it may be convenient to combine both notation. For example, the expansions \eqref{eq:19} and \eqref{eq:20} can be rewritten as follows using the occupation numbers notation
+\begin{align}
+    & \braket{1\,2\ldots N|\{A_1A_2\ldots A_N \}}\notag \\
+    =&\braket{1\,2\ldots N|n_1n_2\ldots n_A\ldots}\notag \\
+    =&(N!)^{-1/2}\sum_{A} \braket{1|A}n_A(-1)^{s(A)}\braket{2\ldots N|n_1\ldots (n_A-1)\ldots}
+    \intertext{and}
+    =&(N!)^{-1/2}\sum_{\ell=1}^N(-1)^{\ell-1+s(A)}\braket{\ell|A}\braket{1\ldots(\ell-1)(\ell+1)\ldots N|n_1\ldots(n_A-1)\ldots}
+\end{align}
+where
+\begin{align}
+    s(A) = \sum_{I<A}n_I
+\end{align}
 
 
 \bibliography{bib}
